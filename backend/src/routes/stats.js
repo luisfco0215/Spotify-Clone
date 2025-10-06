@@ -1,9 +1,8 @@
 import { Router } from "express";
+import getStats from "../controller/stats.controller.js";
 
 const routes = Router();
 
-routes.get("/", async (req, res) => {
-    res.json("Stats route");
-});
+routes.get("/", getStats);
 
 export default routes;
