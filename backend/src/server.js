@@ -12,6 +12,7 @@ import songs from "./routes/songs.js";
 import albums from "./routes/albums.js";
 import stats from "./routes/stats.js";
 import path from "node:path";
+import cors from "cors";
 
 dotenv.config();
 
@@ -21,6 +22,11 @@ const __dirname = path.resolve();
 
 app.use(express.json());
 app.use(clerkMiddleware());
+
+app.use(cors({
+    origin: "http://localhost:3000",
+    credentials: true
+}));
 
 app.use(fileupload({
     useTempFiles: true,
